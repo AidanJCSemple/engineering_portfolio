@@ -1,0 +1,375 @@
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Aidan Semple Engineering Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="logo">
+							    <span class="fa fa-cog" style="color: white; font-size: 40px; margin-right: -10px; transform: rotate(21deg);"></span>
+								<span class="fa fa-cog" style="color: white; font-size: 30px; margin-right: 0px; position: relative; top: 15px;"></span>
+
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h1>Aidan Semple</h1>
+								<p>
+									Mechatronics Engineering Student
+								</p>
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="#about">About</a></li>
+								<li><a href="#projects">Projects</a></li>
+								<li><a href="#contact">Contact</a></li>
+								<!--<li><a href="#elements">Elements</a></li>-->
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- About -->
+							<article id="about">
+								<h2 class="major">About</h2>
+								<span class="image main"><img src="images/profile.jpeg" alt="" /></span>
+								<p>Hi, I’m Aidan Semple, a Mechatronics Engineering candidate (Class of 2030) at the University of Waterloo. I enjoy building systems that bring together hardware, software, mechanical design, and electrical circuitry to solve real-world problems..</p>
+								<p>I’m driven by a genuine passion for learning and enjoy picking up new tools, technologies, and design approaches.  I develop these skills through coursework, personal projects, and hands-on experimentation. I’m especially interested in pursuing engineering work related to the environment and sustainability, where thoughtful design can make a meaningful impact.</p>
+								<p>Outside of engineering, I enjoy spending time outdoors, staying active, and playing basketball, which helps me stay balanced and energized. I value collaboration, clear communication, and bringing a positive attitude to the teams I work with.</p>
+								<p>I’m always looking for opportunities to learn, build, and contribute as I continue developing into a well-rounded engineer.</p>
+							</article>
+
+						<!--  projects -->
+							<article id="projects">
+							<h2 class="major">Projects</h2>
+								<!--  project 1 -->
+								<section id="project1">
+									<span class="image main"><img src="images/project_1.png" alt="" /></span>
+									<h3>Dual-Output Power Supply PCB (KiCad)</h3>
+									<p>This project involved the design of a dual-voltage regulated power supply PCB that provides stable 5 V and 3.3 V rails from a single input source. The circuit uses cascading AMS1117 linear voltage regulators with appropriate filtering capacitors, LED indicators for each rail, and a protective fuse to ensure reliable and safe operation. The board was designed in KiCad, following the full schematic-to-PCB workflow, including component selection, schematic capture, footprint assignment, PCB layout, and 3D visualization. The primary goal of this project was to develop foundational skills in analog circuit design, power management, and manufacturable PCB layout practices.</p>
+								</section>
+								<!--  project 2 -->
+								<section id="project2">
+									<span class="image main"><img src="images/project_2.png" alt="" /></span>
+									<h3>Sports Glasses CAD Design (SolidWorks)</h3>
+									<p>This project involved the 3D modeling of sports glasses in SolidWorks, with a focus on complex geometry, ergonomics, and real-world fit. The model was created using advanced CAD techniques including surface modeling, lofts, extrudes, sweeps, and fillets to achieve smooth transitions and a realistic form factor. To inform the design, real facial measurements were collected and used to guide key dimensions, ensuring proper fit and comfort. Emphasis was placed on maintaining clean feature trees, surface continuity, and clear design intent suitable for manufacturing and iteration. This project strengthened my proficiency with SolidWorks tools and user-centered mechanical design.</p>
+								</section>
+								<!--  project 3 -->
+								<section id="project3">
+									<span class="image main"><img src="images/project_3.png" alt="" /></span>
+									<h3>Automated Warehouse Restocking Robot (VEX IQ)</h3>
+									<p>This project developed an autonomous VEX IQ robot capable of retrieving plastic blocks from a dispenser and placing them into a 2×2 storage shelf, cycling until the shelf is full. The robot features a two-wheel drive, a claw end-effector, and a vertical lift built on 3D-printed linear rails integrated with the VEX IQ mounting grid.</p>
+									<p>
+										Early prototypes used color-sensor line following, but the system was upgraded to PID-controlled movement, significantly improving accuracy and consistency. PID tuning allowed the robot to travel reliably between the dispenser and shelf, maintaining block placement within ±10–20 mm and preventing drift during repeated cycles. This demonstrates my ability to apply feedback control and tuning principles to achieve precise autonomous operation.
+									</p>
+									<p>The robot’s software uses a Finite State Machine (FSM) to manage discrete actions: startup (sensor calibration), retrieve (picking up blocks), navigation to the shelf, detection & placement (checking cubby occupancy and placing blocks), and return. The placement logic fills the 2×2 shelf sequentially, using the lift and robot repositioning as needed, while PID ensures smooth and repeatable motion.</p>
+									<p>This project showcases skills in mechanical design, 3D-printed component integration, control systems, sensor-based navigation, and algorithmic programming, representing a complex, autonomous robotics system built from low-cost components.</p>
+								</section>
+							</article>
+
+						<!-- Contact -->
+							<article id="contact">
+								<h2 class="major">Contact</h2>
+								<form method="post" action="https://formspree.io/f/mkoogknk">
+									<input type="text" name="_gotcha" style="display:none">
+									<div class="fields">
+										<div class="field half">
+											<label for="name">Name</label>
+											<input type="text" name="name" id="name" required />
+										</div>
+										<div class="field half">
+											<label for="email">Email</label>
+											<input type="text" name="email" id="email" required />
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" rows="4" required ></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" class="primary" /></li>
+										<li><input type="reset" value="Reset" /></li>
+									</ul>
+								</form>
+								<ul class="icons">
+									<li><a href="https://www.instagram.com/aidansemple.eng?igsh=cnphb2s5dGFsZ2Zt&utm_source=qr" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="https://www.linkedin.com/in/aidan-semple-910691384/" target="_blank" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+								</ul>
+							</article>
+
+						<!-- Elements -->
+							<article id="elements">
+								<h2 class="major">Elements</h2>
+
+								<section>
+									<h3 class="major">Text</h3>
+									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+									<hr />
+									<h2>Heading Level 2</h2>
+									<h3>Heading Level 3</h3>
+									<h4>Heading Level 4</h4>
+									<h5>Heading Level 5</h5>
+									<h6>Heading Level 6</h6>
+									<hr />
+									<h4>Blockquote</h4>
+									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
+									<h4>Preformatted</h4>
+									<pre><code>i = 0;
+
+while (!deck.isInOrder()) {
+    print 'Iteration ' + i;
+    deck.shuffle();
+    i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+								</section>
+
+								<section>
+									<h3 class="major">Lists</h3>
+
+									<h4>Unordered</h4>
+									<ul>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Alternate</h4>
+									<ul class="alt">
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Ordered</h4>
+									<ol>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis viverra.</li>
+										<li>Felis enim feugiat.</li>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis lorem.</li>
+										<li>Felis enim et feugiat.</li>
+									</ol>
+									<h4>Icons</h4>
+									<ul class="icons">
+										<li><a href="https://www.instagram.com/aidansemple.eng?igsh=cnphb2s5dGFsZ2Zt&utm_source=qr" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="https://www.linkedin.com/in/aidan-semple-910691384/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+									</ul>
+
+									<h4>Actions</h4>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions stacked">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Table</h3>
+									<h4>Default</h4>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+
+									<h4>Alternate</h4>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+								</section>
+
+								<section>
+									<h3 class="major">Buttons</h3>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Primary</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button">Default</a></li>
+										<li><a href="#" class="button small">Small</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
+										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
+									</ul>
+									<ul class="actions">
+										<li><span class="button primary disabled">Disabled</span></li>
+										<li><span class="button disabled">Disabled</span></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Form</h3>
+									<form method="post" action="#">
+										<div class="fields">
+											<div class="field half">
+												<label for="demo-name">Name</label>
+												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
+											</div>
+											<div class="field half">
+												<label for="demo-email">Email</label>
+												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
+											</div>
+											<div class="field">
+												<label for="demo-category">Category</label>
+												<select name="demo-category" id="demo-category">
+													<option value="">-</option>
+													<option value="1">Manufacturing</option>
+													<option value="1">Shipping</option>
+													<option value="1">Administration</option>
+													<option value="1">Human Resources</option>
+												</select>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+												<label for="demo-priority-low">Low</label>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-high" name="demo-priority">
+												<label for="demo-priority-high">High</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-copy" name="demo-copy">
+												<label for="demo-copy">Email me a copy</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-human" name="demo-human" checked>
+												<label for="demo-human">Not a robot</label>
+											</div>
+											<div class="field">
+												<label for="demo-message">Message</label>
+												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+											</div>
+										</div>
+										<ul class="actions">
+											<li><input type="submit" value="Send Message" class="primary" /></li>
+											<li><input type="reset" value="Reset" /></li>
+										</ul>
+									</form>
+								</section>
+
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
