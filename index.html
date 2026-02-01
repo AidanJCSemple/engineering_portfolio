@@ -135,6 +135,7 @@
 					<p>By combining AI-driven text understanding with real-time data collection and an intuitive front end, AI Car Finder transforms the car search experience, showcasing a thoughtful and technically sophisticated engineering solution that bridges the gap between human language and actionable data.</p>
                 </div>
                 <div class="project-item"> 
+					<span class="image main"><img src="images/project_5.png" alt="Evidence & Claim Analyzer" /></span> 
                     <h3>Evidence & Claim Analyzer (Python + Machine Learning)</h3>
                     <p>The Evidence and Claim Analyzer is a software project designed to classify sentences as either claims or evidence using natural language processing and machine learning. Built using Python, Streamlit, and spaCy, the application allows users to input text and receive a real-time breakdown of which portions constitute claims and which serve as supporting evidence, complete with a confidence score for each classification. The project required both UI development using Streamlit and backend machine learning integration using spaCy.</p>
                     <p>The backend of the application is powered by a machine learning pipeline built with scikit-learn and spaCy. Text is first processed through spaCy's "en_core_web_sm" pipeline for sentence segmentation, after which each sentence is vectorized using TF-IDF, a technique that weights words by their importance across the dataset rather than simply counting their frequency. These vectorized features are then fed into a Logistic Regression classifier trained on a custom dataset of over 200 claim and evidence pairs. The classifier outputs both a predicted label and a probability score, which is surfaced to the user as a confidence percentage. A custom spaCy pipeline component called ArgumentExtractor was built to integrate the ML model directly into the spaCy processing workflow, allowing the entire analysis to run as a single call. The training data was stored in a CSV file and expanded iteratively throughout development to improve model accuracy, demonstrating an understanding of how data quantity and diversity directly impact classification performance.</p>
@@ -153,14 +154,19 @@
 
             <!-- Mechanical -->
             <div id="mechanical" class="project-content">
-                <!-- mechanical project unchanged -->
+			    <span class="image main"><img src="images/project_2.png" alt="" /></span>
+				<h3>Sports Glasses CAD Design (SolidWorks)</h3>
+				<p>This project involved the 3D modeling of sports glasses in SolidWorks, with a focus on complex geometry, ergonomics, and real-world fit. The model was created using advanced CAD techniques including surface modeling, lofts, extrudes, sweeps, and fillets to achieve smooth transitions and a realistic form factor. To inform the design, real facial measurements were collected and used to guide key dimensions, ensuring proper fit and comfort. Emphasis was placed on maintaining clean feature trees, surface continuity, and clear design intent suitable for manufacturing and iteration. This project strengthened my proficiency with SolidWorks tools and user-centered mechanical design.</p>
             </div>
 
             <!-- Interdisciplinary -->
             <div id="interdisciplinary" class="project-content">
-			    <span class="image main"><img src="images/project_2.png" alt="" /></span>
-				<h3>Sports Glasses CAD Design (SolidWorks)</h3>
-				<p>This project involved the 3D modeling of sports glasses in SolidWorks, with a focus on complex geometry, ergonomics, and real-world fit. The model was created using advanced CAD techniques including surface modeling, lofts, extrudes, sweeps, and fillets to achieve smooth transitions and a realistic form factor. To inform the design, real facial measurements were collected and used to guide key dimensions, ensuring proper fit and comfort. Emphasis was placed on maintaining clean feature trees, surface continuity, and clear design intent suitable for manufacturing and iteration. This project strengthened my proficiency with SolidWorks tools and user-centered mechanical design.</p>
+				<span class="image main"><img src="images/project_3.png" alt="" /></span>
+				<h3>Automated Warehouse Restocking Robot (VEX IQ)</h3>
+				<p>This project developed an autonomous VEX IQ robot capable of retrieving plastic blocks from a dispenser and placing them into a 2×2 storage shelf, cycling until the shelf is full. The robot features a two-wheel drive, a claw end-effector, and a vertical lift built on 3D-printed linear rails integrated with the VEX IQ mounting grid.</p>
+				<p>Early prototypes used color-sensor line following, but the system was upgraded to PID-controlled movement, significantly improving accuracy and consistency. PID tuning allowed the robot to travel reliably between the dispenser and shelf, maintaining block placement within ±10–20 mm and preventing drift during repeated cycles. This demonstrates my ability to apply feedback control and tuning principles to achieve precise autonomous operation.</p>
+				<p>The robot’s software uses a Finite State Machine (FSM) to manage discrete actions: startup (sensor calibration), retrieve (picking up blocks), navigation to the shelf, detection & placement (checking cubby occupancy and placing blocks), and return. The placement logic fills the 2×2 shelf sequentially, using the lift and robot repositioning as needed, while PID ensures smooth and repeatable motion.</p>
+				<p>This project showcases skills in mechanical design, 3D-printed component integration, control systems, sensor-based navigation, and algorithmic programming, representing a complex, autonomous robotics system built from low-cost components.</p>
             </div>
         </article>
 
