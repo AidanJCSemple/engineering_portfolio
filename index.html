@@ -11,6 +11,67 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* Project tabs styling */
+			.project-tabs {
+				display: flex;
+				justify-content: center;
+				margin-bottom: 2rem;
+				border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+			}
+			
+			.project-tab {
+				background: transparent;
+				border: none;
+				color: rgba(255, 255, 255, 0.7);
+				cursor: pointer;
+				font-size: 0.9rem;
+				padding: 1rem 1.5rem;
+				transition: all 0.3s ease;
+				border-bottom: 3px solid transparent;
+				font-family: inherit;
+			}
+			
+			.project-tab:hover {
+				color: #ffffff;
+				border-bottom-color: rgba(255, 255, 255, 0.3);
+			}
+			
+			.project-tab.active {
+				color: #ffffff;
+				border-bottom-color: #18bfef;
+			}
+			
+			.project-content {
+				display: none;
+			}
+			
+			.project-content.active {
+				display: block;
+			}
+			
+			.project-item {
+				margin-bottom: 3rem;
+				padding-bottom: 2rem;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+			}
+			
+			.project-item:last-child {
+				border-bottom: none;
+				margin-bottom: 0;
+			}
+			
+			@media screen and (max-width: 736px) {
+				.project-tabs {
+					flex-wrap: wrap;
+				}
+				
+				.project-tab {
+					font-size: 0.8rem;
+					padding: 0.75rem 1rem;
+				}
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -49,47 +110,75 @@
 							<article id="about">
 								<h2 class="major">About</h2>
 								<span class="image main"><img src="images/profile.jpeg" alt="" /></span>
-								<p>Hi, I’m Aidan Semple, a Mechatronics Engineering candidate (Class of 2030) at the University of Waterloo. I enjoy building systems that bring together hardware, software, mechanical design, and electrical circuitry to solve real-world problems.</p>
-								<p>I’m driven by a genuine passion for learning and enjoy picking up new tools, technologies, and design approaches.  I develop these skills through coursework, personal projects, and hands-on experimentation. I’m especially interested in pursuing engineering work related to the environment and sustainability, where thoughtful design can make a meaningful impact.</p>
+								<p>Hi, I'm Aidan Semple, a Mechatronics Engineering candidate (Class of 2030) at the University of Waterloo. I enjoy building systems that bring together hardware, software, mechanical design, and electrical circuitry to solve real-world problems.</p>
+								<p>I'm driven by a genuine passion for learning and enjoy picking up new tools, technologies, and design approaches.  I develop these skills through coursework, personal projects, and hands-on experimentation. I'm especially interested in pursuing engineering work related to the environment and sustainability, where thoughtful design can make a meaningful impact.</p>
 								<p>Outside of engineering, I enjoy spending time outdoors, staying active, and playing basketball, which helps me stay balanced and energized. I value collaboration, clear communication, and bringing a positive attitude to the teams I work with.</p>
-								<p>I’m always looking for opportunities to learn, build, and contribute as I continue developing into a well-rounded engineer.</p>
+								<p>I'm always looking for opportunities to learn, build, and contribute as I continue developing into a well-rounded engineer.</p>
 							</article>
 
 						<!--  projects -->
 							<article id="projects">
-							<h2 class="major">Projects</h2>
-								<!--  project 4 -->
-								<section id="project4">
-									<span class="image main"><img src="images/project_4.png" alt="" /></span>
-									<h3>AI Car Finder (Python + spaCy)</h3>
-									<p>The AI Car Finder is a web application that leverages natural language processing (NLP) and automated web scraping to streamline the process of finding used cars online. Unlike traditional search tools, this application allows users to input complex queries in plain English, such as “2018–2020 Chevrolet Silverado under $20000.” The input is parsed using a spaCy-based NLP pipeline, which extracts structured criteria including the vehicle make, model, year range, and maximum price. This intelligent text interpretation ensures that even loosely phrased or partial queries are accurately understood, allowing for flexible and natural user interaction.</p>
-									<p>After parsing the input, the application scrapes listings from Kijiji.ca and Autotrader.ca, two of the most popular online marketplaces for used cars. The scraping modules are designed to filter listings according to the extracted criteria, ensuring that users are only shown relevant results. Each listing includes detailed information such as the car title, price, and a direct link to the source. The front-end interface is built using Streamlit, providing a clean, interactive, and responsive experience where users can quickly browse, compare, and access listings without leaving the application.</p>
-									<p>This project demonstrates a robust integration of AI, web scraping, and user interface design. The NLP component highlights practical applications of AI for understanding human input, while the scraper modules show the challenges and solutions of programmatically accessing dynamic web content. Additionally, the modular architecture of the codebase, with separate scrapers, NLP parser, and main interface, ensures maintainability and scalability for future enhancements like adding additional car marketplaces.</p>
-									<p>By combining AI-driven text understanding with real-time data collection and an intuitive front end, AI Car Finder transforms the car search experience, showcasing a thoughtful and technically sophisticated engineering solution that bridges the gap between human language and actionable data.</p>
-								</section>
-								<!--  project 1 -->
-								<section id="project1">
-									<span class="image main"><img src="images/project_1.png" alt="" /></span>
-									<h3>Dual-Output Power Supply PCB (KiCad)</h3>
-									<p>This project involved the design of a dual-voltage regulated power supply PCB that provides stable 5 V and 3.3 V rails from a single input source. The circuit uses cascading AMS1117 linear voltage regulators with appropriate filtering capacitors, LED indicators for each rail, and a protective fuse to ensure reliable and safe operation. The board was designed in KiCad, following the full schematic-to-PCB workflow, including component selection, schematic capture, footprint assignment, PCB layout, and 3D visualization. The primary goal of this project was to develop foundational skills in analog circuit design, power management, and manufacturable PCB layout practices.</p>
-								</section>
-								<!--  project 2 -->
-								<section id="project2">
-									<span class="image main"><img src="images/project_2.png" alt="" /></span>
-									<h3>Sports Glasses CAD Design (SolidWorks)</h3>
-									<p>This project involved the 3D modeling of sports glasses in SolidWorks, with a focus on complex geometry, ergonomics, and real-world fit. The model was created using advanced CAD techniques including surface modeling, lofts, extrudes, sweeps, and fillets to achieve smooth transitions and a realistic form factor. To inform the design, real facial measurements were collected and used to guide key dimensions, ensuring proper fit and comfort. Emphasis was placed on maintaining clean feature trees, surface continuity, and clear design intent suitable for manufacturing and iteration. This project strengthened my proficiency with SolidWorks tools and user-centered mechanical design.</p>
-								</section>
-								<!--  project 3 -->
-								<section id="project3">
-									<span class="image main"><img src="images/project_3.png" alt="" /></span>
-									<h3>Automated Warehouse Restocking Robot (VEX IQ)</h3>
-									<p>This project developed an autonomous VEX IQ robot capable of retrieving plastic blocks from a dispenser and placing them into a 2×2 storage shelf, cycling until the shelf is full. The robot features a two-wheel drive, a claw end-effector, and a vertical lift built on 3D-printed linear rails integrated with the VEX IQ mounting grid.</p>
-									<p>
-										Early prototypes used color-sensor line following, but the system was upgraded to PID-controlled movement, significantly improving accuracy and consistency. PID tuning allowed the robot to travel reliably between the dispenser and shelf, maintaining block placement within ±10–20 mm and preventing drift during repeated cycles. This demonstrates my ability to apply feedback control and tuning principles to achieve precise autonomous operation.
-									</p>
-									<p>The robot’s software uses a Finite State Machine (FSM) to manage discrete actions: startup (sensor calibration), retrieve (picking up blocks), navigation to the shelf, detection & placement (checking cubby occupancy and placing blocks), and return. The placement logic fills the 2×2 shelf sequentially, using the lift and robot repositioning as needed, while PID ensures smooth and repeatable motion.</p>
-									<p>This project showcases skills in mechanical design, 3D-printed component integration, control systems, sensor-based navigation, and algorithmic programming, representing a complex, autonomous robotics system built from low-cost components.</p>
-								</section>
+								<h2 class="major">Projects</h2>
+								
+								<!-- Project Navigation Tabs -->
+								<div class="project-tabs">
+									<button class="project-tab active" onclick="showProjects('software')">Software</button>
+									<button class="project-tab" onclick="showProjects('electrical')">Electrical</button>
+									<button class="project-tab" onclick="showProjects('mechanical')">Mechanical</button>
+									<button class="project-tab" onclick="showProjects('interdisciplinary')">Interdisciplinary</button>
+								</div>
+
+								<!-- Software Projects -->
+								<div id="software" class="project-content active">
+									<div class="project-item">
+										<span class="image main"><img src="images/project_4.png" alt="" /></span>
+										<h3>AI Car Finder (Python + spaCy)</h3>
+										<p>The AI Car Finder is a web application that leverages natural language processing (NLP) and automated web scraping to streamline the process of finding used cars online. Unlike traditional search tools, this application allows users to input complex queries in plain English, such as "2018–2020 Chevrolet Silverado under $20000." The input is parsed using a spaCy-based NLP pipeline, which extracts structured criteria including the vehicle make, model, year range, and maximum price. This intelligent text interpretation ensures that even loosely phrased or partial queries are accurately understood, allowing for flexible and natural user interaction.</p>
+										<p>After parsing the input, the application scrapes listings from Kijiji.ca and Autotrader.ca, two of the most popular online marketplaces for used cars. The scraping modules are designed to filter listings according to the extracted criteria, ensuring that users are only shown relevant results. Each listing includes detailed information such as the car title, price, and a direct link to the source. The front-end interface is built using Streamlit, providing a clean, interactive, and responsive experience where users can quickly browse, compare, and access listings without leaving the application.</p>
+										<p>This project demonstrates a robust integration of AI, web scraping, and user interface design. The NLP component highlights practical applications of AI for understanding human input, while the scraper modules show the challenges and solutions of programmatically accessing dynamic web content. Additionally, the modular architecture of the codebase, with separate scrapers, NLP parser, and main interface, ensures maintainability and scalability for future enhancements like adding additional car marketplaces.</p>
+										<p>By combining AI-driven text understanding with real-time data collection and an intuitive front end, AI Car Finder transforms the car search experience, showcasing a thoughtful and technically sophisticated engineering solution that bridges the gap between human language and actionable data.</p>
+									</div>
+
+									<div class="project-item">
+										<span class="image main"><img src="images/project_3_evidence.png" alt="" /></span>
+										<h3>Evidence & Claim Analyzer (Python + Machine Learning)</h3>
+										<p>The Evidence and Claim Analyzer is a software project designed to classify sentences as either claims or evidence using natural language processing and machine learning. Built using Python, Streamlit, and spaCy, the application allows users to input text and receive a real-time breakdown of which portions constitute claims and which serve as supporting evidence, complete with a confidence score for each classification.</p>
+										<p>The backend is powered by a machine learning pipeline built with scikit-learn and spaCy. Text is processed through spaCy's pipeline for sentence segmentation, vectorized using TF-IDF weighting, and fed into a Logistic Regression classifier trained on over 200 claim and evidence pairs. A custom spaCy pipeline component called ArgumentExtractor integrates the ML model directly into the processing workflow.</p>
+										<p>The user interface, built with Streamlit, features a text input area, analyze button, and results section with color-coded confidence bars that change based on classification certainty. This project demonstrates the full stack of an NLP application, from training a classifier on curated data to designing an intuitive interface that clearly communicates model output.</p>
+									</div>
+								</div>
+
+								<!-- Electrical Projects -->
+								<div id="electrical" class="project-content">
+									<div class="project-item">
+										<span class="image main"><img src="images/project_1.png" alt="" /></span>
+										<h3>Dual-Output Power Supply PCB (KiCad)</h3>
+										<p>This project involved the design of a dual-voltage regulated power supply PCB that provides stable 5 V and 3.3 V rails from a single input source. The circuit uses cascading AMS1117 linear voltage regulators with appropriate filtering capacitors, LED indicators for each rail, and a protective fuse to ensure reliable and safe operation. The board was designed in KiCad, following the full schematic-to-PCB workflow, including component selection, schematic capture, footprint assignment, PCB layout, and 3D visualization. The primary goal of this project was to develop foundational skills in analog circuit design, power management, and manufacturable PCB layout practices.</p>
+									</div>
+								</div>
+
+								<!-- Mechanical Projects -->
+								<div id="mechanical" class="project-content">
+									<div class="project-item">
+										<span class="image main"><img src="images/project_2.png" alt="" /></span>
+										<h3>Sports Glasses CAD Design (SolidWorks)</h3>
+										<p>This project involved the 3D modeling of sports glasses in SolidWorks, with a focus on complex geometry, ergonomics, and real-world fit. The model was created using advanced CAD techniques including surface modeling, lofts, extrudes, sweeps, and fillets to achieve smooth transitions and a realistic form factor. To inform the design, real facial measurements were collected and used to guide key dimensions, ensuring proper fit and comfort. Emphasis was placed on maintaining clean feature trees, surface continuity, and clear design intent suitable for manufacturing and iteration. This project strengthened my proficiency with SolidWorks tools and user-centered mechanical design.</p>
+									</div>
+								</div>
+
+								<!-- Interdisciplinary Projects -->
+								<div id="interdisciplinary" class="project-content">
+									<div class="project-item">
+										<span class="image main"><img src="images/project_3.png" alt="" /></span>
+										<h3>Automated Warehouse Restocking Robot (VEX IQ)</h3>
+										<p>This project developed an autonomous VEX IQ robot capable of retrieving plastic blocks from a dispenser and placing them into a 2×2 storage shelf, cycling until the shelf is full. The robot features a two-wheel drive, a claw end-effector, and a vertical lift built on 3D-printed linear rails integrated with the VEX IQ mounting grid.</p>
+										<p>
+											Early prototypes used color-sensor line following, but the system was upgraded to PID-controlled movement, significantly improving accuracy and consistency. PID tuning allowed the robot to travel reliably between the dispenser and shelf, maintaining block placement within ±10–20 mm and preventing drift during repeated cycles. This demonstrates my ability to apply feedback control and tuning principles to achieve precise autonomous operation.
+										</p>
+										<p>The robot's software uses a Finite State Machine (FSM) to manage discrete actions: startup (sensor calibration), retrieve (picking up blocks), navigation to the shelf, detection & placement (checking cubby occupancy and placing blocks), and return. The placement logic fills the 2×2 shelf sequentially, using the lift and robot repositioning as needed, while PID ensures smooth and repeatable motion.</p>
+										<p>This project showcases skills in mechanical design, 3D-printed component integration, control systems, sensor-based navigation, and algorithmic programming, representing a complex, autonomous robotics system built from low-cost components.</p>
+									</div>
+								</div>
 							</article>
 
 						<!-- Contact -->
@@ -379,6 +468,26 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			
+			<script>
+				function showProjects(category) {
+					// Hide all project content
+					const contents = document.querySelectorAll('.project-content');
+					contents.forEach(content => {
+						content.classList.remove('active');
+					});
+					
+					// Remove active class from all tabs
+					const tabs = document.querySelectorAll('.project-tab');
+					tabs.forEach(tab => {
+						tab.classList.remove('active');
+					});
+					
+					// Show selected content and activate tab
+					document.getElementById(category).classList.add('active');
+					event.target.classList.add('active');
+				}
+			</script>
 
 	</body>
 </html>
