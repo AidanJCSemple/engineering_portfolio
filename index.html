@@ -71,6 +71,42 @@
             border-bottom: none;
         }
 
+        /* Back-to-experience / navigation links */
+        .back-link {
+            margin: 0.25rem 0 1rem 0;
+        }
+
+        .back-link a {
+            color: #18bfef;
+            text-decoration: none;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        #experience .project-item ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        #experience .project-item ul li {
+            margin-bottom: 0.6rem;
+        }
+
+        #experience .project-item ul li a {
+            color: #18bfef;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        #experience .project-item ul li a:hover {
+            text-decoration: underline;
+        }
+
         @media screen and (max-width: 736px) {
             .project-tabs {
                 flex-wrap: wrap;
@@ -127,6 +163,22 @@
 		<article id="experience">
             <h2 class="major">Experience</h2>
             <span class="image main"></span>
+
+            <div class="project-item">
+                <h3>R&amp;D Engineer Co-op — Hydra Dyne Technology</h3>
+                <p><em>May 2026 – August 2026</em></p>
+                <p>Worked as an R&amp;D engineering co-op supporting the design, prototyping, and testing of custom test equipment and tooling, gaining hands-on, cross-disciplinary experience across electrical, mechanical, and software engineering.</p>
+                <p>Projects from this role (click to view details):</p>
+                <ul>
+                    <li><a onclick="goToProject('electrical','proj1'); return false;">Rotary Component Signal Test Rig</a></li>
+                    <li><a onclick="goToProject('mechanical','proj2'); return false;">Depth-Calibrated Sensor Positioning System</a></li>
+                    <li><a onclick="goToProject('mechanical','proj3'); return false;">Component Installation Tool</a></li>
+                    <li><a onclick="goToProject('electrical','proj4'); return false;">Mechanical Durability Test System</a></li>
+                    <li><a onclick="goToProject('mechanical','proj5'); return false;">Fixture Wire-Securing Solution</a></li>
+                    <li><a onclick="goToProject('interdisciplinary','proj6'); return false;">PCB Bootloading Fixture</a></li>
+                    <li><a onclick="goToProject('mechanical','proj7'); return false;">Soldering Alignment Fixture</a></li>
+                </ul>
+            </div>
         </article>
 
         <!-- Projects -->
@@ -134,10 +186,10 @@
             <h2 class="major">Projects</h2>
 
             <div class="project-tabs">
-                <button class="project-tab active" onclick="showProjects('software', this)">Software</button>
-                <button class="project-tab" onclick="showProjects('electrical', this)">Electrical</button>
-                <button class="project-tab" onclick="showProjects('mechanical', this)">Mechanical</button>
-                <button class="project-tab" onclick="showProjects('interdisciplinary', this)">Interdisciplinary</button>
+                <button class="project-tab active" data-category="software" onclick="showProjects('software')">Software</button>
+                <button class="project-tab" data-category="electrical" onclick="showProjects('electrical')">Electrical</button>
+                <button class="project-tab" data-category="mechanical" onclick="showProjects('mechanical')">Mechanical</button>
+                <button class="project-tab" data-category="interdisciplinary" onclick="showProjects('interdisciplinary')">Interdisciplinary</button>
             </div>
 
             <!-- Software -->
@@ -171,26 +223,90 @@
 
             <!-- Electrical -->
             <div id="electrical" class="project-content">
-			    <span class="image main"><img src="images/project_1.png" alt="" /></span>
-                <h3>Dual-Output Power Supply PCB (KiCad)</h3>
-				<p>This project involved the design of a dual-voltage regulated power supply PCB that provides stable 5 V and 3.3 V rails from a single input source. The circuit uses cascading AMS1117 linear voltage regulators with appropriate filtering capacitors, LED indicators for each rail, and a protective fuse to ensure reliable and safe operation. The board was designed in KiCad, following the full schematic-to-PCB workflow, including component selection, schematic capture, footprint assignment, PCB layout, and 3D visualization. The primary goal of this project was to develop foundational skills in analog circuit design, power management, and manufacturable PCB layout practices.</p>
+
+                <div class="project-item" id="proj1">
+                    <h3>Rotary Component Signal Test Rig</h3>
+                    <p class="back-link"><a href="#experience">← Back to Experience</a></p>
+                    <p>Built a test rig to validate three distinct signal types — PWM, CAN, and rotary encoding — as they passed through a rotating component under continuous load. The system combined custom RC filtering, dual CAN transceivers, and a motor-driven encoder setup, and was built around an ESP32 microcontroller for the core signal-testing logic. Integrating the ESP32 required adding a voltage-divider circuit to safely step down higher-voltage sensor output to a range compatible with the microcontroller's input, along with corresponding firmware adjustments.</p>
+                    <p>I designed and 3D-printed a series of custom mechanical components to support the rig, including shaft couplers, motor and sensor mounts, and iterative housing revisions to resolve issues like thermal wear under sustained rotation.</p>
+                    <p>On the software side, I architected a circular-buffer-based system that continuously tracked the last 20 voltage readings and calculated a rolling standard deviation in real time. This gave the rig a live measure of signal stability throughout each test, making it possible to flag noise or drift as it happened rather than only after the fact. All data — voltage readings, timestamps, and stability metrics — was logged to an SD card for post-test analysis across multi-hour endurance runs.</p>
+                </div>
+
+                <div class="project-item" id="proj4">
+                    <h3>Mechanical Durability Test System</h3>
+                    <p class="back-link"><a href="#experience">← Back to Experience</a></p>
+                    <p>Built a durability test rig to cycle mechanical components, such as seals, through repeated back-and-forth motion that mimics real-world operating conditions over extended durations. The system used a perfboard-based motor driver circuit, programmed on an ESP32 microcontroller, to control the back-and-forth cycling pattern and track total cycle counts in real time.</p>
+                    <p>I designed two interchangeable housing variations to accommodate different component sizes on the same test platform, and implemented automated SD-card logging of cycle data, enabling long-duration reliability testing to run unattended while still capturing consistent, structured data for later analysis.</p>
+                </div>
+
+			    <div class="project-item">
+			        <span class="image main"><img src="images/project_1.png" alt="" /></span>
+                    <h3>Dual-Output Power Supply PCB (KiCad)</h3>
+				    <p>This project involved the design of a dual-voltage regulated power supply PCB that provides stable 5 V and 3.3 V rails from a single input source. The circuit uses cascading AMS1117 linear voltage regulators with appropriate filtering capacitors, LED indicators for each rail, and a protective fuse to ensure reliable and safe operation. The board was designed in KiCad, following the full schematic-to-PCB workflow, including component selection, schematic capture, footprint assignment, PCB layout, and 3D visualization. The primary goal of this project was to develop foundational skills in analog circuit design, power management, and manufacturable PCB layout practices.</p>
+                </div>
             </div>
 
             <!-- Mechanical -->
             <div id="mechanical" class="project-content">
-			    <span class="image main"><img src="images/project_2.png" alt="" /></span>
-				<h3>Sports Glasses CAD Design (SolidWorks)</h3>
-				<p>This project involved the 3D modeling of sports glasses in SolidWorks, with a focus on complex geometry, ergonomics, and real-world fit. The model was created using advanced CAD techniques including surface modeling, lofts, extrudes, sweeps, and fillets to achieve smooth transitions and a realistic form factor. To inform the design, real facial measurements were collected and used to guide key dimensions, ensuring proper fit and comfort. Emphasis was placed on maintaining clean feature trees, surface continuity, and clear design intent suitable for manufacturing and iteration. This project strengthened my proficiency with SolidWorks tools and user-centered mechanical design.</p>
+
+                <div class="project-item" id="proj2">
+                    <h3>Depth-Calibrated Sensor Positioning System</h3>
+                    <p class="back-link"><a href="#experience">← Back to Experience</a></p>
+                    <p>Designed a mechanical system to position a sensor at precise, repeatable heights relative to a test component, addressing a need for accurate sensor placement where output signal varies with distance. The system uses a gear-driven, dual-lead-screw lift guided by two linear rails, with a depth gauge providing direct height feedback for accurate, repeatable calibration.</p>
+                    <p>I designed and 3D-printed the full set of custom components for the system, including the gear drive plate and three custom gears, a depth-gauge mount, and stands for both the sensor system and the test component — iterating through several versions to improve fit, rigidity, and alignment.</p>
+                    <p>Beyond the design work, I also managed the sourcing side of the project: researching and selecting the lead screws, linear rails, and hardware (screws, nuts, and fasteners) needed for the build, then preparing and submitting a purchase requisition form to get the components ordered. Seeing the project through from initial concept to a fully assembled, calibrated system gave me a well-rounded view of the full mechanical design and build process.</p>
+                </div>
+
+                <div class="project-item" id="proj3">
+                    <h3>Component Installation Tool</h3>
+                    <p class="back-link"><a href="#experience">← Back to Experience</a></p>
+                    <p>Designed a mechanical installation tool to help assembly technicians more efficiently and consistently install a component onto a rotating shaft. Working closely with an assembly technician for hands-on feedback, I iterated the design across several versions, refining the geometry to improve grip, alignment, and ease of use.</p>
+                    <p>Through testing and iteration, the final design delivered an estimated 250% improvement in installation efficiency compared to the manual process it replaced. A key part of the project was designing for manufacturability — reworking the geometry so it could be produced via laser cutting rather than requiring more complex machining, which significantly reduced production cost and lead time. I created a full technical drawing for the final design, specifying dimensions and tolerances for manufacturing, and coordinated to have the part laser cut and produced.</p>
+                </div>
+
+                <div class="project-item" id="proj5">
+                    <h3>Fixture Wire-Securing Solution</h3>
+                    <p class="back-link"><a href="#experience">← Back to Experience</a></p>
+                    <p>A recurring issue in one of the test fixtures involved wires coming loose where they exited the housing, creating a reliability problem during testing. After researching adhesive options, I identified a steel-reinforced epoxy as a strong, practical fix for securing the wires in place.</p>
+                    <p>To make the fix repeatable rather than a one-off patch, I designed and 3D-printed custom applicator components that allowed the epoxy to be applied precisely and consistently every time. This turned a recurring point of failure into a reliable, low-cost, and easily repeatable solution.</p>
+                </div>
+
+                <div class="project-item" id="proj7">
+                    <h3>Soldering Alignment Fixture</h3>
+                    <p class="back-link"><a href="#experience">← Back to Experience</a></p>
+                    <p>Designed a fixture to hold PCB contact components in precise alignment during a repetitive soldering operation, with a strong emphasis on designing for economical, practical manufacturing rather than just functional design.</p>
+                    <p>The SolidWorks assembly consists of a base plate, a top plate that holds the PCB down (with three toggle clamps mounted on it), three toggle-clamp mounting blocks, and an alignment block that passes through both the base plate and the PCB's through-hole before screwing into the top plate. Precisely located, press-fit dowel pins in the base plate — designed to an H7/n6 fit for a secure, no-tools-required press fit — ensure consistent alignment between the pieces every time the fixture is assembled.</p>
+                    <p>Manufacturability was a central design driver throughout: I iterated the design specifically so that most components could be produced via laser cutting, with a few simple parts machined from stock material (cut to size and drilled for screw holes) rather than requiring more complex or costly machining. This kept the fixture inexpensive and quick to produce while still meeting the alignment and clamping requirements. I also sourced and ordered the hardware for the build, including screws, nuts, and the three toggle clamps.</p>
+                    <p>The final design significantly streamlined what had been a manual, inconsistent soldering process, improving both speed and repeatability for a task performed regularly on the production floor.</p>
+                </div>
+
+			    <div class="project-item">
+			        <span class="image main"><img src="images/project_2.png" alt="" /></span>
+				    <h3>Sports Glasses CAD Design (SolidWorks)</h3>
+				    <p>This project involved the 3D modeling of sports glasses in SolidWorks, with a focus on complex geometry, ergonomics, and real-world fit. The model was created using advanced CAD techniques including surface modeling, lofts, extrudes, sweeps, and fillets to achieve smooth transitions and a realistic form factor. To inform the design, real facial measurements were collected and used to guide key dimensions, ensuring proper fit and comfort. Emphasis was placed on maintaining clean feature trees, surface continuity, and clear design intent suitable for manufacturing and iteration. This project strengthened my proficiency with SolidWorks tools and user-centered mechanical design.</p>
+                </div>
             </div>
 
             <!-- Interdisciplinary -->
             <div id="interdisciplinary" class="project-content">
-				<span class="image main"><img src="images/project_3.png" alt="" /></span>
-				<h3>Automated Warehouse Restocking Robot (VEX IQ)</h3>
-				<p>This project developed an autonomous VEX IQ robot capable of retrieving plastic blocks from a dispenser and placing them into a 2×2 storage shelf, cycling until the shelf is full. The robot features a two-wheel drive, a claw end-effector, and a vertical lift built on 3D-printed linear rails integrated with the VEX IQ mounting grid.</p>
-				<p>Early prototypes used color-sensor line following, but the system was upgraded to PID-controlled movement, significantly improving accuracy and consistency. PID tuning allowed the robot to travel reliably between the dispenser and shelf, maintaining block placement within ±10–20 mm and preventing drift during repeated cycles. This demonstrates my ability to apply feedback control and tuning principles to achieve precise autonomous operation.</p>
-				<p>The robot’s software uses a Finite State Machine (FSM) to manage discrete actions: startup (sensor calibration), retrieve (picking up blocks), navigation to the shelf, detection & placement (checking cubby occupancy and placing blocks), and return. The placement logic fills the 2×2 shelf sequentially, using the lift and robot repositioning as needed, while PID ensures smooth and repeatable motion.</p>
-				<p>This project showcases skills in mechanical design, 3D-printed component integration, control systems, sensor-based navigation, and algorithmic programming, representing a complex, autonomous robotics system built from low-cost components.</p>
+
+                <div class="project-item" id="proj6">
+                    <h3>PCB Bootloading Fixture</h3>
+                    <p class="back-link"><a href="#experience">← Back to Experience</a></p>
+                    <p>This project combined mechanical and electrical design to solve a practical problem: quickly and reliably loading firmware onto microcontrollers mounted on the company's production circuit boards.</p>
+                    <p>On the mechanical side, I designed a full SolidWorks assembly and created individual technical drawings for every custom component. The fixture consists of a hinged base and lid: the base holds the company's PCB in a precisely fitted 3D-printed cradle, while the lid houses my own custom-designed board and presses down to make contact. I paid close attention to fit and tolerancing throughout — selecting a sliding H7/h6 fit for the hinge to allow smooth, accurately located rotation, and dialing in the tolerances on the 3D-printed components so every part, including the company's PCB, sat and located precisely within the base. The lid also includes a height-adjustment mechanism, allowing the screws holding the PCB in place to be repositioned for different board thicknesses, and I designed an ergonomic handle into the lid to make the fixture comfortable and intuitive to open and close repeatedly. I sourced and ordered the fasteners and hardware (screws, nuts, washers) needed for the build from outside manufacturers.</p>
+                    <p>On the electrical side, I researched bootloading methods and designed a custom PCB in KiCad — including full schematic capture and PCB layout — built to make reliable, repeatable contact with the target board. I researched and selected pogo pins as the contact method, since they allow for a solid electrical connection without needing to solder or permanently mount to the target board each time. I then prepared and submitted the fabrication files and order through PCBWay to have the board manufactured.</p>
+                    <p>Bringing together custom mechanical tolerancing, an ergonomic and adjustable enclosure, and a purpose-built PCB with a pogo-pin interface, this project represents one of the most complete, end-to-end designs I completed during my co-op — spanning mechanical design, electrical engineering, and manufacturing coordination.</p>
+                </div>
+
+				<div class="project-item">
+				    <span class="image main"><img src="images/project_3.png" alt="" /></span>
+				    <h3>Automated Warehouse Restocking Robot (VEX IQ)</h3>
+				    <p>This project developed an autonomous VEX IQ robot capable of retrieving plastic blocks from a dispenser and placing them into a 2×2 storage shelf, cycling until the shelf is full. The robot features a two-wheel drive, a claw end-effector, and a vertical lift built on 3D-printed linear rails integrated with the VEX IQ mounting grid.</p>
+				    <p>Early prototypes used color-sensor line following, but the system was upgraded to PID-controlled movement, significantly improving accuracy and consistency. PID tuning allowed the robot to travel reliably between the dispenser and shelf, maintaining block placement within ±10–20 mm and preventing drift during repeated cycles. This demonstrates my ability to apply feedback control and tuning principles to achieve precise autonomous operation.</p>
+				    <p>The robot's software uses a Finite State Machine (FSM) to manage discrete actions: startup (sensor calibration), retrieve (picking up blocks), navigation to the shelf, detection & placement (checking cubby occupancy and placing blocks), and return. The placement logic fills the 2×2 shelf sequentially, using the lift and robot repositioning as needed, while PID ensures smooth and repeatable motion.</p>
+				    <p>This project showcases skills in mechanical design, 3D-printed component integration, control systems, sensor-based navigation, and algorithmic programming, representing a complex, autonomous robotics system built from low-cost components.</p>
+                </div>
             </div>
         </article>
 
@@ -239,12 +355,22 @@
 <script src="assets/js/main.js"></script>
 
 <script>
-function showProjects(category, tab) {
+function showProjects(category) {
     document.querySelectorAll('.project-content').forEach(c => c.classList.remove('active'));
     document.querySelectorAll('.project-tab').forEach(t => t.classList.remove('active'));
 
     document.getElementById(category).classList.add('active');
-    tab.classList.add('active');
+    document.querySelector('.project-tab[data-category="' + category + '"]').classList.add('active');
+}
+
+function goToProject(category, id) {
+    showProjects(category);
+    setTimeout(function () {
+        var el = document.getElementById(id);
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }, 100);
 }
 </script>
 
