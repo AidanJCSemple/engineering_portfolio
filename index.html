@@ -170,13 +170,13 @@
                 <p>Worked as an R&amp;D engineering co-op supporting the design, prototyping, and testing of custom test equipment and tooling, gaining hands-on, cross-disciplinary experience across electrical, mechanical, and software engineering.</p>
                 <p>Projects from this role (click to view details):</p>
                 <ul>
-                    <li><a onclick="goToProject('electrical','proj1'); return false;">Rotary Component Signal Test Rig</a></li>
-                    <li><a onclick="goToProject('mechanical','proj2'); return false;">Depth-Calibrated Sensor Positioning System</a></li>
-                    <li><a onclick="goToProject('mechanical','proj3'); return false;">Component Installation Tool</a></li>
-                    <li><a onclick="goToProject('electrical','proj4'); return false;">Mechanical Durability Test System</a></li>
-                    <li><a onclick="goToProject('mechanical','proj5'); return false;">Fixture Wire-Securing Solution</a></li>
-                    <li><a onclick="goToProject('interdisciplinary','proj6'); return false;">PCB Bootloading Fixture</a></li>
-                    <li><a onclick="goToProject('mechanical','proj7'); return false;">Soldering Alignment Fixture</a></li>
+                    <li><a href="#proj1" class="goto-project" data-goto-category="electrical" data-goto-id="proj1">Rotary Component Signal Test Rig</a></li>
+                    <li><a href="#proj2" class="goto-project" data-goto-category="mechanical" data-goto-id="proj2">Depth-Calibrated Sensor Positioning System</a></li>
+                    <li><a href="#proj3" class="goto-project" data-goto-category="mechanical" data-goto-id="proj3">Component Installation Tool</a></li>
+                    <li><a href="#proj4" class="goto-project" data-goto-category="electrical" data-goto-id="proj4">Mechanical Durability Test System</a></li>
+                    <li><a href="#proj5" class="goto-project" data-goto-category="mechanical" data-goto-id="proj5">Fixture Wire-Securing Solution</a></li>
+                    <li><a href="#proj6" class="goto-project" data-goto-category="interdisciplinary" data-goto-id="proj6">PCB Bootloading Fixture</a></li>
+                    <li><a href="#proj7" class="goto-project" data-goto-category="mechanical" data-goto-id="proj7">Soldering Alignment Fixture</a></li>
                 </ul>
             </div>
         </article>
@@ -186,10 +186,10 @@
             <h2 class="major">Projects</h2>
 
             <div class="project-tabs">
-                <button class="project-tab active" data-category="software" onclick="showProjects('software')">Software</button>
-                <button class="project-tab" data-category="electrical" onclick="showProjects('electrical')">Electrical</button>
-                <button class="project-tab" data-category="mechanical" onclick="showProjects('mechanical')">Mechanical</button>
-                <button class="project-tab" data-category="interdisciplinary" onclick="showProjects('interdisciplinary')">Interdisciplinary</button>
+                <button class="project-tab active" data-category="software">Software</button>
+                <button class="project-tab" data-category="electrical">Electrical</button>
+                <button class="project-tab" data-category="mechanical">Mechanical</button>
+                <button class="project-tab" data-category="interdisciplinary">Interdisciplinary</button>
             </div>
 
             <!-- Software -->
@@ -356,22 +356,43 @@
 
 <script>
 function showProjects(category) {
-    document.querySelectorAll('.project-content').forEach(c => c.classList.remove('active'));
-    document.querySelectorAll('.project-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.project-content').forEach(function (c) { c.classList.remove('active'); });
+    document.querySelectorAll('.project-tab').forEach(function (t) { t.classList.remove('active'); });
 
-    document.getElementById(category).classList.add('active');
-    document.querySelector('.project-tab[data-category="' + category + '"]').classList.add('active');
+    var panel = document.getElementById(category);
+    var tab = document.querySelector('.project-tab[data-category="' + category + '"]');
+    if (panel) panel.classList.add('active');
+    if (tab) tab.classList.add('active');
 }
 
 function goToProject(category, id) {
     showProjects(category);
     setTimeout(function () {
         var el = document.getElementById(id);
-        if (el) {
+        if (el && el.scrollIntoView) {
             el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     }, 100);
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Tab buttons
+    document.querySelectorAll('.project-tab').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            showProjects(btn.getAttribute('data-category'));
+        });
+    });
+
+    // Experience -> project links
+    document.querySelectorAll('.goto-project').forEach(function (link) {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            var category = link.getAttribute('data-goto-category');
+            var id = link.getAttribute('data-goto-id');
+            goToProject(category, id);
+        });
+    });
+});
 </script>
 
 </body>
