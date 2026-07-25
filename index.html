@@ -365,14 +365,11 @@ function showProjects(category) {
     if (tab) tab.classList.add('active');
 }
 
-function goToProject(category, id) {
-    showProjects(category);
-    setTimeout(function () {
-        var el = document.getElementById(id);
-        if (el && el.scrollIntoView) {
-            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    }, 100);
+function scrollToProjectItem(id) {
+    var el = document.getElementById(id);
+    if (el && el.scrollIntoView) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -387,9 +384,26 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.goto-project').forEach(function (link) {
         link.addEventListener('click', function (event) {
             event.preventDefault();
+
             var category = link.getAttribute('data-goto-category');
             var id = link.getAttribute('data-goto-id');
-            goToProject(category, id);
+
+            // Push this past the current click event entirely. By the time
+            // this runs, the click has already fully bubbled and resolved,
+            // so it can't interact with $body's click-to-close handler in
+            // main.js — this is a plain, later, JS-driven hash/state change,
+            // not part of the click dispatch at all.
+            setTimeout(function () {
+                window.location.hash = 'projects';
+                showProjects(category);
+
+                // main.js's article-switch animation takes ~325ms (the
+                // "delay" var) before #projects is actually displayed,
+                // so wait for that before scrolling within it.
+                setTimeout(function () {
+                    scrollToProjectItem(id);
+                }, 500);
+            }, 0);
         });
     });
 });
