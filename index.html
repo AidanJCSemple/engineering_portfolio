@@ -153,9 +153,9 @@
         <article id="about">
             <h2 class="major">About</h2>
             <span class="image main"><img src="images/profile.jpeg" alt="" /></span>
-            <p>Hi, I'm Aidan Semple, a Mechatronics Engineering candidate (Class of 2030) at the University of Waterloo. I enjoy building systems that bring together hardware, software, mechanical design, and electrical circuitry to solve real-world problems.</p>
-            <p>I'm driven by a genuine passion for learning and enjoy picking up new tools, technologies, and design approaches. I develop these skills through coursework, personal projects, and hands-on experimentation. I'm especially interested in pursuing engineering work related to the environment and sustainability, where thoughtful design can make a meaningful impact.</p>
-            <p>Outside of engineering, I enjoy spending time outdoors, staying active, and playing basketball, which helps me stay balanced and energized. I value collaboration, clear communication, and bringing a positive attitude to the teams I work with.</p>
+            <p>Hi, I'm Aidan Semple, a Mechatronics Engineering candidate (Class of 2030) at the University of Waterloo. I like systems that force you to think across disciplines at once — where a decision in the CAD model changes your PCB layout, and a PCB layout changes your firmware. That intersection of hardware, software, mechanical design, and electrical circuitry is where I do my best problem solving, and it's what keeps me coming back to embedded systems and robotics in particular.</p>
+            <p>Lately I've been pulling machine learning into that mix too — I like that it gives me another lens for tackling the same core question I care about in every project: how do you take a messy, ambiguous problem and turn it into something structured enough to actually build? Whether that's researching a new PCB design technique for ten hours before laying down a single trace, or debugging why a model won't converge, I get genuinely energized by the research-design-iterate loop.</p>
+            <p>Outside of engineering, I'm probably on a basketball court or watching one — I'm a die-hard Raptors fan, for better or worse some seasons. I also spend a fair amount of my free time writing, which scratches a different itch than engineering does but somehow still feels related: both are just different ways of taking something unstructured and making it clear.</p>
             <p>I'm always looking for opportunities to learn, build, and contribute as I continue developing into a well-rounded engineer.</p>
         </article>
  
@@ -167,7 +167,7 @@
             <div class="project-item">
                 <h3>R&amp;D Engineer Co-op — Hydra Dyne Technology</h3>
                 <p><em>May 2026 – August 2026</em></p>
-                <p>Worked as an R&amp;D engineering co-op supporting the design, prototyping, and testing of custom test equipment and tooling, gaining hands-on, cross-disciplinary experience across electrical, mechanical, and software engineering.</p>
+                <p>Worked as an R&amp;D engineering co-op solving open-ended problems from the ground up. My supervisor would hand me a problem, and from there the process was mine to own: researching possible approaches, designing a solution, and presenting it before carrying it through to a finished build. That meant sourcing and ordering parts, designing PCBs, 3D printing and custom-manufacturing components, and wiring, soldering, and assembling the final system by hand. This end-to-end ownership — from initial problem-solving to a fully working piece of equipment — gave me hands-on, cross-disciplinary experience across electrical, mechanical, and software engineering.</p>
                 <p>Projects from this role (click to view details):</p>
                 <ul>
                     <li><a href="#proj1" class="goto-project" data-goto-category="electrical" data-goto-id="proj1">Rotary Component Signal Test Rig</a></li>
@@ -179,7 +179,7 @@
                     <li><a href="#proj7" class="goto-project" data-goto-category="mechanical" data-goto-id="proj7">Soldering Alignment Fixture</a></li>
                     <li><a href="#proj9" class="goto-project" data-goto-category="mechanical" data-goto-id="proj9">Custom Spud Sleeve Cap</a></li>
                     <li><a href="#proj10" class="goto-project" data-goto-category="interdisciplinary" data-goto-id="proj10">Torque Sensing Seal-Wear Fixture</a></li>
-                    <li><a href="#proj8" class="goto-project" data-goto-category="electrical" data-goto-id="proj8">Dual-Node RS-485 Communication Test PCB</a></li>
+                    <li><a href="#proj8" class="goto-project" data-goto-category="electrical" data-goto-id="proj8">Dual-Node RS-485 Slip Ring Signal Test System</a></li>
                 </ul>
             </div>
         </article>
@@ -243,20 +243,17 @@
                 </div>
  
                 <div class="project-item" id="proj8">
-                    <h3>Dual-Node RS-485 Communication Test PCB</h3>
+                    <h3>Dual-Node RS-485 Slip Ring Signal Test System</h3>
                     <p class="back-link"><a href="#experience">← Back to Experience</a></p>
-                    <p>Designed a production-ready, single-board RS-485 communication test platform built around two ESP32-S3-MINI modules that pass RS-485 traffic between each other, with screw-terminal wiring broken out so an external electrical component under test can be inserted into the communication loop. This test was developed near the end of my co-op and folded in lessons learned from the earlier rotary signal test rig and other projects, resulting in a more mature, self-contained design.</p>
-                    <p>Everything needed to run the test lives on a single PCB. Each ESP32-S3-MINI has its own onboard voltage regulation and USB interface for independent programming and power, and the board includes an embedded motor driver IC to run a stepper motor that provides mechanical actuation during testing. Passive components — resistors, capacitors, and RS-485 bias/termination networks — were sized and placed according to the relevant datasheet recommendations, and status LEDs were distributed across the board so the health of each subsystem can be confirmed at a glance. Layout followed standard high-speed and mixed-signal PCB practices, including careful attention to differential pair routing, decoupling placement, and return-path continuity, to keep the RS-485 signaling clean and repeatable.</p>
-                    <p>An onboard SD card module logs the RS-485 signaling data captured during each test run. On the mechanical side, I designed a custom 3D-printed housing for the electronics that mounts to a laser-cut aluminum base plate, with the stepper motor also fastened directly to the base plate to keep the whole test setup rigid and self-contained. Firmware was structured to run the test in repeatable cycles, allowing the board to be left running unattended over extended communication-reliability tests.</p>
-                    <p>This project pulled together PCB design, embedded firmware, motor control, and mechanical packaging into a single, production-oriented test tool, and represented a natural extension of the signal-testing work I'd built up earlier in the co-op.</p>
+                    <span class="image main"><img src="images/project_rs485_schematic.png" alt="RS-485 Slip Ring Signal Tester schematic" /></span>
+                    <p>This was the most advanced PCB I've designed to date, and it started as a fairly narrow question: how reliably can RS-485 communication pass through an electrical slip ring under real mechanical operation? Answering it properly meant building a full mechatronic test platform rather than a bench circuit — two ESP32-S3 control nodes talking to each other through RS-485 transceivers and the slip ring itself, with a motor-driven rotating interface, a torque sensor, and SD logging tying the whole thing together. I treated it as one system from the start: ESP32 → transceiver → slip ring → transceiver → ESP32, with the mechanical rotation, torque measurement, and data logging designed around that communication path rather than bolted on afterward.</p>
+                    <span class="image main"><img src="images/project_rs485_render.png" alt="RS-485 test PCB 3D render" /></span>
+                    <p>The mechanical side used a geared DC motor to drive the rotating shaft through the slip ring while a torque sensor captured the mechanical load, with brackets and structural plates designed for aluminum fabrication and validated with SolidWorks FEA (6061-T6, motor torque loading, bolt preload, mesh refinement) before anything was cut. Identical brackets were used wherever possible to keep manufacturing simple and cheap. But the electrical design is where this project really pushed me. I went in planning a 2-layer board and quickly realized it wasn't going to cut it for the routing density and signal integrity I needed, so I moved to a 4-layer stackup — signal, solid GND plane, 3.3 V power plane, signal — which let me route freely on both outer layers while keeping a continuous ground reference underneath everything.</p>
+                    <span class="image main"><img src="images/project_rs485_layout.png" alt="RS-485 test PCB routed layout" /></span>
+                    <p>Getting there took over ten hours of just researching proper PCB design technique before I laid down a single trace — grounding strategy, decoupling loop geometry, differential pair routing, EMI mitigation, the works. I stopped treating grounding as "connect every ground pin with a trace" and instead built a continuous internal GND plane with strategically placed vias for low-inductance return paths, especially around the ESP32 modules. Decoupling capacitors were placed to minimize the actual physical current loop (power → IC → ground return → capacitor), not just to sit near the chip. Routing was prioritized by signal importance — USB D+/D− as a true differential pair over continuous ground, the SD interface treated as a high-speed bus ahead of ordinary GPIO, and the RS-485 A/B differential pair routed with the same care, all while avoiding unnecessary layer transitions that would break the ground reference.</p>
+                    <p>The result is a board where every layout decision — plane assignment, via placement, trace priority — traces back to a physical reason: current loops, return paths, and electromagnetic coupling, not just "make it fit." Pulling together mechanical FEA, motor and sensor integration, embedded firmware across two communicating nodes, and a 4-layer PCB designed for real signal integrity and EMI performance made this the most complete, systems-level project I've taken on — and easily the one that taught me the most.</p>
                 </div>
- 
-			    <div class="project-item">
-			        <span class="image main"><img src="images/project_1.png" alt="" /></span>
-                    <h3>Dual-Output Power Supply PCB (KiCad)</h3>
-				    <p>This project involved the design of a dual-voltage regulated power supply PCB that provides stable 5 V and 3.3 V rails from a single input source. The circuit uses cascading AMS1117 linear voltage regulators with appropriate filtering capacitors, LED indicators for each rail, and a protective fuse to ensure reliable and safe operation. The board was designed in KiCad, following the full schematic-to-PCB workflow, including component selection, schematic capture, footprint assignment, PCB layout, and 3D visualization. The primary goal of this project was to develop foundational skills in analog circuit design, power management, and manufacturable PCB layout practices.</p>
-                </div>
-            </div>
+             </div>
  
             <!-- Mechanical -->
             <div id="mechanical" class="project-content">
