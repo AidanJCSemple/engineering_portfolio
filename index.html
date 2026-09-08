@@ -125,6 +125,13 @@
             margin-left: auto;
             margin-right: auto;
         }
+ 
+        /* Smaller, centered images for the Interactive Artifact project */
+        .image.main.artifact-img {
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
     </style>
 </head>
  
@@ -281,6 +288,17 @@
                     <p class="back-link"><a href="#experience">← Back to Experience</a></p>
                     <p>Designed a mechanical installation tool to help assembly technicians more efficiently and consistently install a component onto a rotating shaft. Working closely with an assembly technician for hands-on feedback, I iterated the design across several versions, refining the geometry to improve grip, alignment, and ease of use.</p>
                     <p>Through testing and iteration, the final design delivered an estimated 250% improvement in installation efficiency compared to the manual process it replaced. A key part of the project was designing for manufacturability — reworking the geometry so it could be produced via laser cutting rather than requiring more complex machining, which significantly reduced production cost and lead time. I created a full technical drawing for the final design, specifying dimensions and tolerances for manufacturing, and coordinated to have the part laser cut and produced.</p>
+                </div>
+ 
+                <div class="project-item" id="proj-artifact">
+                    <h3>Interactive Artifact — CAD Design &amp; Additive Manufacturing</h3>
+                    <span class="image main artifact-img"><img src="images/ArtifactImage.jpg" alt="Illuminated six-piece 3D printed artifact, assembled and glowing" /></span>
+                    <p>Designed and manufactured a six-piece illuminated artifact in SolidWorks, with each component optimized for independent 3D printing and mechanical assembly.</p>
+                    <p>I focused heavily on tolerance design and manufacturability, carefully dimensioning interacting features such as the tongue-and-groove joints to achieve a precise, repeatable fit. Accounted for the dimensional characteristics of FDM printing, including the tendency for printed holes and internal features to be tighter than their nominal CAD dimensions.</p>
+                    <span class="image main artifact-img"><img src="images/FullAssembly.png" alt="SolidWorks render of the fully assembled six-piece artifact" /></span>
+                    <p>Integrated compliant retention fingers to securely press-fit the internal USB-powered light while accommodating manufacturing variation. The six components could be repeatedly assembled and disassembled while maintaining a precise mechanical fit.</p>
+                    <span class="image main artifact-img"><img src="images/FullAssemblyTree.png" alt="SolidWorks assembly feature tree for the artifact" /></span>
+                    <p>The artifact was created as the centerpiece of a full-day, story-driven experience designed from the ground up. The experience combined the physical artifact with custom puzzles, activities, and locations, supported by a custom-built website hosted on Netlify, and culminated in the assembly and illumination of the completed artifact. Each puzzle was associated to 1 fragment of the 3D printed part. At the end, everything came together. The project combined mechanical CAD, tolerance engineering, additive manufacturing, electronics integration, web development, and experience design.</p>
                 </div>
  
                 <div class="project-item" id="proj5">
